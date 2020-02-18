@@ -8,7 +8,7 @@ import paptor from 'paptor'
 
 or
 
-<script src='./paptor.js'></script>
+<script src='https://unpkg.com/paptor@0.2.1/dist/paptor.js'></script>
 ```
 
 ## 示例
