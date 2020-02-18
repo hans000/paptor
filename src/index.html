@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="../dist/paptor.js"></script>
+<!-- <script src="./index.js"></script> -->
+<script>
+    
+const data = {
+    name: 'Jack',
+    age: 18,
+    weight: 60,
+    sports: ['pingpong', 'football'],
+    other: {
+        a: 'a',
+        b: 'b',
+    }
+}
+
+const struct = [
+    ['name', 'firstname'],   // 修改字段名
+    ['nickname', (_, data) => 'little ' + data.name],   // 新增一个属性
+    ['weight'], // 原样保留
+    ['age', 'age', function(item) {
+        this['isAdult'] = item >= 18    // 添加新字段
+        return item
+    } ],
+    ['sports', (item) => item.map(e => 'I like ' + e)], // 修改数据
+]
+
+console.log(paptor.paramsAdaptor(data, struct));
+
+</script>
+</html>
