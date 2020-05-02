@@ -1,18 +1,5 @@
-# param-adaptor
+import { paramsAdaptor, recursionAdaptor } from "..";
 
-解决前后分离项目的接口数据不适用的问题，可以方便的对元数据进行增、删、改
-
-## 引入
-```
-import paptor from 'paptor'
-
-or
-
-<script src='https://unpkg.com/paptor@0.2.1/dist/paptor.js'></script>
-```
-
-## 示例
-```
 // define interface
 interface IData {
     name: string,
@@ -72,5 +59,3 @@ describe('recursionAdaptor test', () => {
         ])
     })
 })
-
-```
