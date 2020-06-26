@@ -12,6 +12,8 @@ module.exports = {
             commonjs: 'paptor'
         },
         libraryTarget: 'umd',
+        libraryExport: 'default',
+        globalObject: 'this',
     },
     resolve: {
         extensions: ['.ts']
