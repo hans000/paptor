@@ -1,4 +1,4 @@
-import { paramsAdaptor, recursionAdaptor } from "..";
+import { objectAdaptor, arrayAdaptor } from ".."
 
 // define interface
 interface IData {
@@ -13,22 +13,44 @@ const data: IData = {
     number: '18812345678'
 }
 
-describe('paramsAdaptor test', () => {
+describe('objectAdaptor test', () => {
     test('pick', () => {
-        expect(paramsAdaptor(data, [ ['name'], ['age'], ])).toEqual({ name: 'Jack', age: 20 })
+        expect(objectAdaptor(data, [ ['name'], ['age'], ])).toEqual({ name: 'Jack', age: 20 })
     })
     test('rename', () => {
-        expect(paramsAdaptor(data, [ ['name', 'Name'], ['age', 'Age'], ])).toEqual({ Name: 'Jack', Age: 20 })
+        expect(objectAdaptor(data, [ ['name', 'Name'], ['age', 'Age'], ])).toEqual({ Name: 'Jack', Age: 20 })
     })
     test('add new props', () => {
-        expect(paramsAdaptor(data, [ 
+        expect(objectAdaptor(data, [ 
             ['name'], 
             ['age'], 
             ['number'], 
             ['age', 'isAdult', (age) => {
                 return age >= 18
             }] 
+
         ])).toEqual({ name: 'Jack', age: 20, number: '18812345678', isAdult: true })
+    })
+})
+
+describe('objectAdaptor test remove', () => {
+    test('only remove', () => {
+        expect(objectAdaptor(data, [], ['number'])).toEqual({ name: 'Jack', age: 20 })
+    })
+    test('update and remove', () => {
+        expect(objectAdaptor(data, [ ['name', 'Name']], ['number'])).toEqual({ Name: 'Jack', age: 20 })
+    })
+    test('add new props and remove', () => {
+        expect(objectAdaptor(data, [ 
+            ['name'], 
+            ['age'], 
+            ['number'], 
+            ['age', 'isAdult', (age) => {
+                return age >= 18
+            }] 
+        ], [
+            'number'
+        ])).toEqual({ name: 'Jack', age: 20, isAdult: true })
     })
 })
 
@@ -44,16 +66,16 @@ const dataTree = [
     { name: 'baz', id: '10000002', child: [ { name: 'bar', id: '10000003' } ] },
 ]
 
-describe('recursionAdaptor test', () => {
+describe('arrayAdaptor test', () => {
     test('list', () => {
-        expect(recursionAdaptor(dataList, [['id', 'value'], ['name', 'title']])).toEqual([
+        expect(arrayAdaptor(dataList, [['id', 'value'], ['name', 'title']])).toEqual([
             { title: 'foo', value: '10000001' },
             { title: 'baz', value: '10000002' },
             { title: 'bar', value: '10000003' },
         ])
     })
     test('tree', () => {
-        expect(recursionAdaptor(dataTree, [['id', 'value'], ['name', 'title']], ['child', 'children'])).toEqual([
+        expect(arrayAdaptor(dataTree, [['id', 'value'], ['name', 'title']], ['child', 'children'])).toEqual([
             { title: 'foo', value: '10000001', children: [] },
             { title: 'baz', value: '10000002', children: [ { title: 'bar', value: '10000003', children: [] } ] },
         ])

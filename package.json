@@ -1,6 +1,6 @@
 {
   "name": "paptor",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "参数适配，解决前后分离项目的接口数据不适用的问题，可以方便的对元数据进行增、删、改",
   "main": "dist/paptor.js",
   "types": "./src/index.d.ts",
@@ -27,6 +27,7 @@
     "jest": "^25.5.3",
     "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.2",
+    "ts-node": "^8.10.2",
     "typescript": "^3.8.3",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"

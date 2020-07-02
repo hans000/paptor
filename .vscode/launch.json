@@ -11,10 +11,16 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\dist\\paptor.js",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "args": [
+                "${workspaceRoot}\\src\\index.ts"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "runtimeArgs": [
+              "--nolazy",
+              "-r",
+              "ts-node/register"
+            ],
         }
     ]
 }
