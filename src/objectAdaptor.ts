@@ -1,7 +1,6 @@
 import { StructType, OldKey, CallbackFn } from ".";
 import { isType } from "./util";
 
-
 function handle<T, P>(data: T, struct: StructType<T, P> = [], flag = false): any {
     const type = isType(data)
 
@@ -67,6 +66,10 @@ function removeHandle<T, P>(data: T, struct: StructType<T, P> = [], remove: OldK
     return newData
 }
 
-export default function <T, P>(data: T, struct: StructType<T, P>, remove?: OldKey<T>[] | CallbackFn<T>): P {
+function objectAdaptor<T, P>(data: T, struct: StructType<T, P>, remove?: OldKey<T>[]): P;
+function objectAdaptor<T, P>(data: T, struct: StructType<T, P>, remove?: CallbackFn<T>): P;
+function objectAdaptor<T, P>(data: T, struct: StructType<T, P>, remove?: any): P {
     return remove ? removeHandle<T, P>(data, struct, remove) : handle(data, struct)
 }
+
+export default objectAdaptor
