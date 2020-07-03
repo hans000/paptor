@@ -13,7 +13,7 @@ module.exports = {
         },
         libraryTarget: 'umd',
         libraryExport: 'default',
-        globalObject: 'this',
+        // globalObject: 'this',
     },
     resolve: {
         extensions: ['.ts']
