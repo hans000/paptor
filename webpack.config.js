@@ -12,7 +12,7 @@ module.exports = {
             commonjs: 'paptor'
         },
         libraryTarget: 'umd',
-        libraryExport: 'default',
+        // libraryExport: 'default',
         // globalObject: 'this',
     },
     resolve: {
