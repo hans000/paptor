@@ -42,7 +42,7 @@ console.log(objectAdaptor(data, [['age', 'Age'], ['number', 'Number']]));
 
 // 提取需求的属性并修改属性名 pick prop and update value
 console.log(objectAdaptor(data, [['age'], ['name', (name) => `name is ${name}`]]));
-// { age: 20 }
+// { age: 20, name: 'name is Jack' }
 
 // 提取需求的属性、重命名属性名并修改属性名 pick prop, rename prop and update value
 console.log(objectAdaptor(data, [['age'], ['name', 'Name', (name) => `name is ${name}`]]));
@@ -61,13 +61,13 @@ console.log(objectAdaptor(data, [['age', 'Age']], ['number']));
 // { name: 'Jack', Age: 20 }
 
 
-// mock data list
+// mock list data
 const dataList = [
     { name: 'foo', id: '10000001' },
     { name: 'baz', id: '10000002' },
     { name: 'bar', id: '10000003' },
 ]
-// mock data tree
+// mock tree data
 const dataTree = [
     { name: 'foo', id: '10000001' },
     { name: 'baz', id: '10000002', child: [ { name: 'bar', id: '10000003' } ] },
