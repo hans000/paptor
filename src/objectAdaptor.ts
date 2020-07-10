@@ -33,8 +33,8 @@ function handle<T, P>(data: T, struct: StructType<T, P> = [], flag = false): any
             if (newKey === undefined) {
                 s[key] = data[key]
             } else if (typeof newKey === 'string') {
+                s[newKey] = data[key]
                 if (<string>newKey !== key) {
-                    s[newKey] = data[key]
                     delete s[key]
                 }
             } else if (typeof newKey === 'function') {

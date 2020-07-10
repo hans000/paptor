@@ -54,7 +54,7 @@ describe('objectAdaptor test remove', () => {
     })
     test('add new props and remove', () => {
         expect(objectAdaptor(data, [ 
-            ['name', 'name'], 
+            ['name', 'name', (e: string) => e.toLocaleLowerCase()], 
             ['age', 'age'], 
             ['number', 'number'], 
             ['age', 'isAdult', (age) => {
@@ -62,7 +62,7 @@ describe('objectAdaptor test remove', () => {
             }] 
         ], [
             'number'
-        ])).toEqual({ name: 'Jack', age: 20, isAdult: true })
+        ])).toEqual({ name: 'jack', age: 20, isAdult: true })
     })
 })
 
