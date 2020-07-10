@@ -39,7 +39,6 @@ function handle<T, P>(data: T, struct: StructType<T, P> = [], flag = false): any
                 }
             } else if (typeof newKey === 'function') {
                 s[key] = newKey.call(s, data[key], data)
-                delete s[key]
             } else {
                 throw new Error(`second parameter's type is string or function`)
             }

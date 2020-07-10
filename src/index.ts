@@ -14,13 +14,3 @@ export {
     objectAdaptor,
     arrayAdaptor,
 }
-const data = {
-    name: 'jacl',
-    age: 18
-}
-console.log(objectAdaptor(data, [
-    ['name', 'name'],
-    ['age', 'age', (e) => {
-        return e + 10
-    }]
-]), data);

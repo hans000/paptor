@@ -56,13 +56,13 @@ describe('objectAdaptor test remove', () => {
         expect(objectAdaptor(data, [ 
             ['name', 'name', (e: string) => e.toLocaleLowerCase()], 
             ['age', 'age'], 
-            ['number', 'number'], 
+            ['number', (e: string) => '+86 ' + e], 
             ['age', 'isAdult', (age) => {
                 return age >= 18
             }] 
         ], [
-            'number'
-        ])).toEqual({ name: 'jack', age: 20, isAdult: true })
+            'age'
+        ])).toEqual({ name: 'jack', isAdult: true, number: '+86 18812345678' })
     })
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "paptor",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "参数适配，解决前后分离项目的接口数据不适用的问题，可以方便的对元数据进行增、删、改",
   "main": "dist/paptor.js",
   "types": "./src/index.d.ts",
