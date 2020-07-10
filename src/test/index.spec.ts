@@ -52,6 +52,18 @@ describe('objectAdaptor test remove', () => {
             'number'
         ])).toEqual({ name: 'Jack', age: 20, isAdult: true })
     })
+    test('add new props and remove', () => {
+        expect(objectAdaptor(data, [ 
+            ['name', 'name'], 
+            ['age', 'age'], 
+            ['number', 'number'], 
+            ['age', 'isAdult', (age) => {
+                return age >= 18
+            }] 
+        ], [
+            'number'
+        ])).toEqual({ name: 'Jack', age: 20, isAdult: true })
+    })
 })
 
 // mock data list
