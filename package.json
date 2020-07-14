@@ -1,6 +1,6 @@
 {
   "name": "paptor",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "参数适配，解决前后分离项目的接口数据不适用的问题，可以方便的对元数据进行增、删、改",
   "main": "dist/paptor.js",
   "types": "./src/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haima16/paptor.git"
+    "url": "git+https://github.com/hans000/paptor.git"
   },
   "keywords": [
     "paramster",
@@ -19,9 +19,9 @@
   "author": "hans000",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/haima16/paptor/issues"
+    "url": "https://github.com/hans000/paptor/issues"
   },
-  "homepage": "https://github.com/haima16/paptor#readme",
+  "homepage": "https://github.com/hans000/paptor#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "jest": "^25.5.3",
